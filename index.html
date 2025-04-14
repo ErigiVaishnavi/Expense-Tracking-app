@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <!-- Login Template -->
+    <template id="login-template">
+        <div class="auth-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+        </div>
+    </template>
+
+    <!-- Signup Template -->
+    <template id="signup-template">
+        <div class="auth-container">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </div>
+    </template>
+
+    <!-- Home Template -->
+    <template id="home-template">
+        <div class="home-container">
+            <header class="main-header">
+                <h1 class="logo">Expense Tracker</h1>
+                <div class="user-section">
+                    <div class="profile-dropdown">
+                        <div class="profile-trigger">
+                            <img src="" alt="Profile" id="profile-image" class="profile-image">
+                        </div>
+                        <div class="dropdown-content">
+                            <button id="logout-btn" class="dropdown-item">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="dashboard">
+                <div class="chart-container">
+                    <div class="legend">
+                        <div class="legend-item"><span class="dot investment"></span>Investment</div>
+                        <div class="legend-item"><span class="dot saving"></span>Saving</div>
+                        <div class="legend-item"><span class="dot expense"></span>Expense</div>
+                    </div>
+                    <canvas id="statistics-chart"></canvas>
+                </div>
+                <div class="transaction-form">
+                    <h3>Add New Transaction</h3>
+                    <form id="transaction-form">
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" id="amount" required placeholder="Enter amount">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" required>
+                                <option value="expense">Expense</option>
+                                <option value="saving">Saving</option>
+                                <option value="investment">Investment</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" required placeholder="Enter description">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-type">Payment Type</label>
+                            <select id="payment-type" required>
+                                <option value="">Select Payment Type</option>
+                                <option value="Card">Card</option>
+                                <option value="Cash">Cash</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" required placeholder="Enter location">
+                        </div>
+                        <button type="submit" class="btn-primary">Add Transaction</button>
+                    </form>
+                </div>
+            </div>
+            <div class="transactions-list">
+                <h2>History</h2>
+                <div id="transactions-container"></div>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html> 
